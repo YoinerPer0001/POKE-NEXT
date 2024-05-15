@@ -28,6 +28,15 @@ export async function generateMetadata({ params }: props): Promise<Metadata> {
 }
 
 
+//snipet gsp solo se ejecuta en build time
+export async function generateStaticParams(){
+
+  const staticPages = Array.from({length:151}).map((v,i)=> `${i + 1}` )
+
+  return staticPages.map(id=> ({id: id}))
+}
+
+
 
 const fetchData = async (id: string): Promise<DataPokemon> => {
 
